@@ -1,4 +1,8 @@
 #!/bin/bash
-sudo apt update -y
-sudo apt install -y apache2
-sudo echo "DevOps Aviva Assignment" > /var/www/html/index.html
+apt-get update -y
+echo "Installing puppet"
+apt-get install -y puppet
+echo "cloning git repo"
+git clone https://github.com/pranjal124/puppetwithAWS.git /tmp/puppet-manifests
+echo "applying puppet configuration"
+puppet apply /tmp/puppet-manifests/site.pp
